@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tariq Cloth House - Premium Men's Clothing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles & Variables */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #e74c3c;
+            --accent: #3498db;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+            --text-light: #7f8c8d;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s forwards;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s 0.2s forwards;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeLeft {
+            from { 
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeRight {
+            from { 
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            from { 
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to { 
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes slideInFromLeft {
+            from { 
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInFromRight {
+            from { 
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            animation: slideInFromLeft 0.8s ease-out;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            animation: fadeLeft 0.8s forwards;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            margin-left: 10px;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--secondary);
+            animation: pulse 2s infinite;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+            animation: fadeIn 1s forwards;
+            opacity: 0;
+        }
+
+        nav ul li:nth-child(1) { animation-delay: 0.2s; }
+        nav ul li:nth-child(2) { animation-delay: 0.4s; }
+        nav ul li:nth-child(3) { animation-delay: 0.6s; }
+        nav ul li:nth-child(4) { animation-delay: 0.8s; }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary);
+            animation: bounce 0.5s;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section - FIXED */
+        .hero {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 180px 0 100px;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .hero-image-container img:hover {
+            transform: scale(1.02);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s 0.3s forwards;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s 0.5s forwards;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            animation: pulse 0.5s;
+        }
+
+        /* WhatsApp Button Fix */
+        .btn-whatsapp {
+            background-color: #25D366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            margin-top: 15px;
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+            animation: none !important;
+            transition: var(--transition);
+            padding: 10px 15px;
+            font-size: 0.9rem;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+            opacity: 1 !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(100px);
+        }
+
+        .whatsapp-float.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .whatsapp-float i {
+            margin-top: 4px;
+        }
+
+        .whatsapp-tooltip {
+            position: absolute;
+            right: 70px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .whatsapp-float:hover .whatsapp-tooltip {
+            opacity: 1;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: fadeLeft 0.8s 0.3s forwards;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: fadeLeft 0.8s 0.5s forwards;
+        }
+
+        .about-image {
+            flex: 1;
+            opacity: 0;
+            transform: translateX(20px);
+            animation: fadeRight 0.8s 0.7s forwards;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .about-image img:hover {
+            transform: scale(1.03);
+        }
+
+        /* Products Section */
+        .products {
+            background-color: var(--light);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s forwards;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            animation: pulse 0.5s;
+        }
+
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        /* Free Delivery Badge */
+        .free-delivery-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 2;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            animation: pulse 2s infinite;
+        }
+
+        .free-delivery-badge i {
+            margin-right: 5px;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .product-info p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .product-price {
+            font-weight: bold;
+            color: var(--secondary);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        /* Free Delivery Text */
+        .free-delivery-text {
+            display: flex;
+            align-items: center;
+            color: #4CAF50;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .free-delivery-text i {
+            margin-right: 5px;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: fadeLeft 0.8s 0.3s forwards;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--secondary);
+            width: 20px;
+        }
+
+        .contact-social {
+            margin-top: 30px;
+        }
+
+        .contact-social h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            text-decoration: none;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px);
+            animation: pulse 0.5s;
+        }
+
+        .social-links a.facebook {
+            background-color: #3b5998;
+            animation-delay: 0s;
+        }
+
+        .social-links a.instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            animation-delay: 0.2s;
+        }
+
+        .social-links a.whatsapp {
+            background-color: #25D366;
+            animation-delay: 0.4s;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+            animation: slideInFromLeft 0.8s ease-out;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .footer-logo {
+            flex: 1;
+        }
+
+        .footer-logo h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+            flex: 1;
+        }
+
+        .footer-links h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-links h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+            opacity: 0;
+            transform: translateX(-10px);
+            animation: slideInFromLeft 0.5s forwards;
+        }
+
+        .footer-links ul li:nth-child(1) { animation-delay: 0.1s; }
+        .footer-links ul li:nth-child(2) { animation-delay: 0.2s; }
+        .footer-links ul li:nth-child(3) { animation-delay: 0.3s; }
+        .footer-links ul li:nth-child(4) { animation-delay: 0.4s; }
+        .footer-links ul li:nth-child(5) { animation-delay: 0.5s; }
+        .footer-links ul li:nth-child(6) { animation-delay: 0.6s; }
+
+        .footer-links ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+
+        .footer-social {
+            flex: 1;
+        }
+
+        .footer-social h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-social h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-5px);
+            animation: pulse 0.5s;
+        }
+
+        .social-icons a:nth-child(1) { animation-delay: 0s; }
+        .social-icons a:nth-child(2) { animation-delay: 0.2s; }
+        .social-icons a:nth-child(3) { animation-delay: 0.4s; }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #bbb;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .products-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .about-content, .contact-content {
+                flex-direction: column;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary);
+                padding: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: var(--transition);
+            }
+            
+            nav.active {
+                max-height: 300px;
+                padding: 20px 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 25px;
+            }
+            
+            .whatsapp-tooltip {
+                display: none;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-tshirt logo-icon"></i>
+                <h1>Tariq Cloth House</h1>
+            </div>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section - FIXED -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-image-container">
+                <img src="sliver  col.png" alt="Men's Winter Collection" class="hero-img">
+            </div>
+            <div class="hero-content">
+                <h1>Premium Men's Clothing Collection</h1>
+                <p>Discover the latest trends in men's fashion with Tariq Cloth House. Quality fabrics, perfect fits, and styles for every occasion.</p>
+                <a href="#products" class="btn">Shop Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Us</h2>
+                <p>Learn more about our story and commitment to quality men's fashion</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Our Story</h3>
+                    <p>Founded in 2005, Tariq Cloth House has been providing premium quality men's clothing to fashion-conscious individuals. Our journey began with a small store in the heart of the city and has now expanded to multiple locations.</p>
+                    <p>We believe that every man deserves to wear clothes that make him feel confident and comfortable. That's why we carefully select each fabric and design to ensure the highest quality standards.</p>
+                    <p>Our team of experienced fashion consultants is always ready to help you find the perfect outfit for any occasion, whether it's a formal event, casual outing, or special celebration.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Tariq Cloth House Store">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<div class="col-12" style="width:100%;padding:0;margin:0;">
+  <img src="a4 suit.webp" alt="image" style="display:block;width:100%;height:auto;max-width:100%;object-fit:cover;">
+</div>
+
+
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Products</h2>
+                <p>Explore our wide range of premium men's clothing collections with FREE DELIVERY across Pakistan</p>
+            </div>
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card" style="animation-delay: 0.1s">
+                    <div class="product-image">
+                        <div class="free-delivery-badge">
+                            <i class="fas fa-shipping-fast"></i> FREE DELIVERY
+                        </div>
+                        <img src="black.webp" alt="BLACK SUIT">
+                    </div>
+                    <div class="product-info">
+                        <h3>BLACK SUIT</h3>
+                        <p>Pure black with shining</p>
+                        <div class="product-price">RS 4499</div>
+                        <div class="free-delivery-text">
+                            <i class="fas fa-truck"></i> Free Delivery Across Pakistan
+                        </div>
+                        <a href="https://wa.me/923076848457?text=Hi,%20I'm%20interested%20in%20BLACK%20SUIT" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Buy Now on WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card" style="animation-delay: 0.2s">
+                    <div class="product-image">
+                        <div class="free-delivery-badge">
+                            <i class="fas fa-shipping-fast"></i> FREE DELIVERY
+                        </div>
+                        <img src="WHITE SUITT.jpg" alt="WHITE SUIT">
+                    </div>
+                    <div class="product-info">
+                        <h3>WHITE</h3>
+                        <p>Pure white with shining</p>
+                        <div class="product-price">RS 2999</div>
+                        <div class="free-delivery-text">
+                            <i class="fas fa-truck"></i> Free Delivery Across Pakistan
+                        </div>
+                        <a href="https://wa.me/923076848457?text=Hi,%20I'm%20interested%20in%20WHITE%20SUIT" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Buy Now on WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card" style="animation-delay: 0.3s">
+                    <div class="product-image">
+                        <div class="free-delivery-badge">
+                            <i class="fas fa-shipping-fast"></i> FREE DELIVERY
+                        </div>
+                        <img src="sky suiitt.jpg" alt="SKY SUIT">
+                    </div>
+                    <div class="product-info">
+                        <h3>Sky</h3>
+                        <p>Pure sky colour</p>
+                        <div class="product-price">RS 2999</div>
+                        <div class="free-delivery-text">
+                            <i class="fas fa-truck"></i> Free Delivery Across Pakistan
+                        </div>
+                        <a href="https://wa.me/923076848457?text=Hi,%20I'm%20interested%20in%20SKY%20SUIT" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Buy Now on WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card" style="animation-delay: 0.4s">
+                    <div class="product-image">
+                        <div class="free-delivery-badge">
+                            <i class="fas fa-shipping-fast"></i> FREE DELIVERY
+                        </div>
+                        <img src="GORR color.webp" alt="CHOCOLATE SUIT">
+                    </div>
+                    <div class="product-info">
+                        <h3>CHOCOLATE COLOUR</h3>
+                        <p>Chocolate shining color</p>
+                        <div class="product-price">RS 2999</div>
+                        <div class="free-delivery-text">
+                            <i class="fas fa-truck"></i> Free Delivery Across Pakistan
+                        </div>
+                        <a href="https://wa.me/923076848457?text=Hi,%20I'm%20interested%20in%20CHOCOLATE%20SUIT" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Buy Now on WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card" style="animation-delay: 0.5s">
+                    <div class="product-image">
+                        <div class="free-delivery-badge">
+                            <i class="fas fa-shipping-fast"></i> FREE DELIVERY
+                        </div>
+                        <img src="brownn.jpg" alt="BROWN SUIT">
+                    </div>
+                    <div class="product-info">
+                        <h3>BROWN</h3>
+                        <p>Brown shining colour</p>
+                        <div class="product-price">RS 2999</div>
+                        <div class="free-delivery-text">
+                            <i class="fas fa-truck"></i> Free Delivery Across Pakistan
+                        </div>
+                        <a href="https://wa.me/923076848457?text=Hi,%20I'm%20interested%20in%20BROWN%20SUIT" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Buy Now on WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="product-card" style="animation-delay: 0.6s">
+                    <div class="product-image">
+                        <div class="free-delivery-badge">
+                            <i class="fas fa-shipping-fast"></i> FREE DELIVERY
+                        </div>
+                        <img src="blue cocor.webp" alt="BLUE SUIT">
+                    </div>
+                    <div class="product-info">
+                        <h3>BLUE</h3>
+                        <p>Shining blue color</p>
+                        <div class="product-price">RS 2999</div>
+                        <div class="free-delivery-text">
+                            <i class="fas fa-truck"></i> Free Delivery Across Pakistan
+                        </div>
+                        <a href="https://wa.me/923076848457?text=Hi,%20I'm%20interested%20in%20BLUE%20SUIT" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Buy Now on WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Product 7 -->
+                <div class="product-card" style="animation-delay: 0.7s">
+                    <div class="product-image">
+                        <div class="free-delivery-badge">
+                            <i class="fas fa-shipping-fast"></i> FREE DELIVERY
+                        </div>
+                        <img src="dark suit.png" alt="DARK SUIT">
+                    </div>
+                    <div class="product-info">
+                        <h3>COOL DARK</h3>
+                        <p>Dark shine wash n wear</p>
+                        <div class="product-price">RS 2999</div>
+                        <div class="free-delivery-text">
+                            <i class="fas fa-truck"></i> Free Delivery Across Pakistan
+                        </div>
+                        <a href="https://wa.me/923076848457?text=Hi,%20I'm%20interested%20in%20DARK%20SUIT" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Buy Now on WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Product 8 -->
+                <div class="product-card" style="animation-delay: 0.8s">
+                    <div class="product-image">
+                        <div class="free-delivery-badge">
+                            <i class="fas fa-shipping-fast"></i> FREE DELIVERY
+                        </div>
+                        <img src="silver color.png" alt="SILVER SUIT">
+                    </div>
+                    <div class="product-info">
+                        <h3>SILVER</h3>
+                        <p>Original silver color</p>
+                        <div class="product-price">RS 2999</div>
+                        <div class="free-delivery-text">
+                            <i class="fas fa-truck"></i> Free Delivery Across Pakistan
+                        </div>
+                        <a href="https://wa.me/923076848457?text=Hi,%20I'm%20interested%20in%20SILVER%20SUIT" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Buy Now on WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Product 9 -->
+                <div class="product-card" style="animation-delay: 0.9s">
+                    <div class="product-image">
+                        <div class="free-delivery-badge">
+                            <i class="fas fa-shipping-fast"></i> FREE DELIVERY
+                        </div>
+                        <img src="FAME WHITE.webp" alt="FAME WHITE SUIT">
+                    </div>
+                    <div class="product-info">
+                        <h3>FAME WHITE</h3>
+                        <p>Brighter fame white color</p>
+                        <div class="product-price">RS 2999</div>
+                        <div class="free-delivery-text">
+                            <i class="fas fa-truck"></i> Free Delivery Across Pakistan
+                        </div>
+                        <a href="https://wa.me/923076848457?text=Hi,%20I'm%20interested%20in%20FAME%20WHITE%20SUIT" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Buy Now on WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Product 10 -->
+                <div class="product-card" style="animation-delay: 1s">
+                    <div class="product-image">
+                        <div class="free-delivery-badge">
+                            <i class="fas fa-shipping-fast"></i> FREE DELIVERY
+                        </div>
+                        <img src="inspire color.png" alt="INSPIRE SUIT">
+                    </div>
+                    <div class="product-info">
+                        <h3>INSPIRE</h3>
+                        <p>Inspire not expire</p>
+                        <div class="product-price">RS 2999</div>
+                        <div class="free-delivery-text">
+                            <i class="fas fa-truck"></i> Free Delivery Across Pakistan
+                        </div>
+                        <a href="https://wa.me/923076848457?text=Hi,%20I'm%20interested%20in%20INSPIRE%20SUIT" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Buy Now on WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- KEPT PRODUCTS - 11 to 15 -->
+                
+                <!-- Product 11 -->
+                <div class="product-card" style="animation-delay: 0.1s">
+                    <div class="product-image">
+                        <div class="free-delivery-badge">
+                            <i class="fas fa-shipping-fast"></i> FREE DELIVERY
+                        </div>
+                        <img src="flora color.webp" alt="MAROON SUIT">
+                    </div>
+                    <div class="product-info">
+                        <h3>FLORA</h3>
+                        <p>Elegant flora color</p>
+                        <div class="product-price">RS 2999</div>
+                        <div class="free-delivery-text">
+                            <i class="fas fa-truck"></i> Free Delivery Across Pakistan
+                        </div>
+                        <a href="https://wa.me/923076848457?text=Hi,%20I'm%20interested%20in%20MAROON%20SUIT" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Buy Now on WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Product 12 -->
+                <div class="product-card" style="animation-delay: 0.2s">
+                    <div class="product-image">
+                        <div class="free-delivery-badge">
+                            <i class="fas fa-shipping-fast"></i> FREE DELIVERY
+                        </div>
+                        <img src="sormai  color.png" alt="NAVY BLUE SUIT">
+                    </div>
+                    <div class="product-info">
+                        <h3>SURMAYI </h3>
+                        <p>Classic SURMAYI COLOR</p>
+                        <div class="product-price">RS 2999</div>
+                        <div class="free-delivery-text">
+                            <i class="fas fa-truck"></i> Free Delivery Across Pakistan
+                        </div>
+                        <a href="https://wa.me/923076848457?text=Hi,%20I'm%20interested%20in%20NAVY%20BLUE%20SUIT" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Buy Now on WhatsApp
+                        </a>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch with us for any inquiries or orders</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Visit Our Store</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Main bazar Bangla gogera district okara</p>
+                    <p><i class="fas fa-phone"></i> +92 307 6848457</p>
+                    <p><i class="fas fa-envelope"></i> zm748823@gmail.com</p>
+                    <p><i class="fas fa-clock"></i> Mon-Sat: 9:00 AM - 11:00 PM</p>
+                    <p><i class="fas fa-clock"></i> Sun: 10:00 AM - 6:00 PM</p>
+                    
+                    <div class="contact-social">
+                        <h4>Follow Us</h4>
+                        <div class="social-links">
+                            <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://wa.me/923076848457" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Tariq Cloth House</h2>
+                    <p>Your trusted partner for premium men's clothing since 2005. We offer the latest fashion trends with unmatched quality and service.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/923076848457"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                    <p style="margin-top: 20px;">Subscribe to our newsletter for updates</p>
+                    <div style="display: flex; margin-top: 10px;">
+                        <input type="email" placeholder="Your email" style="flex: 1; padding: 10px; border: none; border-radius: 4px 0 0 4px;">
+                        <button style="background: var(--secondary); color: white; border: none; padding: 0 15px; border-radius: 0 4px 4px 0; cursor: pointer;">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Tariq Cloth House. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/923076848457?text=Hi,%20I'm%20interested%20in%20your%20products" class="whatsapp-float" target="_blank" id="whatsappFloat">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Contact us on WhatsApp</span>
+    </a>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+        
+        menuToggle.addEventListener('click', function() {
+            mainNav.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    mainNav.classList.remove('active');
+                }
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            contactForm.reset();
+        });
+        
+        // Animation on scroll
+        const animateOnScroll = function() {
+            const elements = document.querySelectorAll('.product-card, .about-text h3, .about-text p, .about-image, .contact-info, .contact-form');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translate(0)';
+                }
+            });
+        };
+        
+        // Ensure WhatsApp buttons are always visible
+        document.addEventListener('DOMContentLoaded', function() {
+            const whatsappBtns = document.querySelectorAll('.btn-whatsapp');
+            whatsappBtns.forEach(btn => {
+                btn.style.opacity = '1';
+                btn.style.transform = 'translateY(0)';
+            });
+        });
+        
+        // Floating WhatsApp Button Scroll Effect
+        window.addEventListener('scroll', function() {
+            const whatsappFloat = document.getElementById('whatsappFloat');
+            const scrollPosition = window.scrollY;
+            
+            if (scrollPosition > 300) {
+                whatsappFloat.classList.add('active');
+            } else {
+                whatsappFloat.classList.remove('active');
+            }
+            
+            animateOnScroll();
+        });
+        
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
